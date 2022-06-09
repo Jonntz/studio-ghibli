@@ -1,0 +1,48 @@
+.grid-movies{
+    margin-top: 2%; 
+    display: grid; 
+    grid-template-columns: repeat(5, 1fr); 
+    gap: 10px;
+}
+.form{
+    margin-top: 2%; 
+}
+
+.form-control{
+    border-radius: 25px;
+}
+
+.btn{
+    border: none;
+}
+
+.btn:hover {
+    background-color: #ffab61;
+    color: #1C1C1C;
+}
+
+.container{
+    display: flex; 
+    flex-direction: column;  
+    width: 90vw; 
+    margin: auto;
+}
+
+@media screen and (max-width: 992px) {
+    .grid-movies{
+        grid-template-columns: repeat(3, 1fr); 
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .grid-movies{
+        grid-template-columns: repeat(2, 1fr); 
+    }
+}
+
+
+@media screen and (max-width: 576px) {
+    .grid-movies{
+        grid-template-columns: repeat(1, 1fr); 
+    }
+}

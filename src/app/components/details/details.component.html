@@ -1,0 +1,19 @@
+<div class="container info row">
+    <div class="banner row col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+        <img src="{{movie.movie_banner}}" width="100%" alt="banner of the movie">
+    </div>
+
+    <div class="row col-cxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+        <h1>{{movie.title }}</h1>
+        <p><b>Original title:</b> {{ movie.original_title }}</p>
+        <p><b>Director:</b> {{ movie.director }}</p>
+        <p><b>Producer:</b> {{ movie.producer }}</p>
+        <p><b>Year:</b> {{ movie.release_date }}</p>
+    </div>
+</div>
+
+<hr  noshade>
+
+<div class="sinopse container">
+    <b>Synopsis: </b> {{movie.description}}
+</div>
