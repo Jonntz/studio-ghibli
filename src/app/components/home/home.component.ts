@@ -11,6 +11,7 @@ export class HomeComponent implements OnInit {
 
   allMovies: any;
   animeSearch:any;
+  movieOnly:any;
 
   constructor(private router: Router) { }
 
@@ -29,7 +30,23 @@ export class HomeComponent implements OnInit {
     })
   }
 
+  async getMovieByName(params: any){
+    let url = `https://ghibliapi.herokuapp.com/films`
+    const api = Axios.create({
+      baseURL: url
+    })
+    api.get(`/?title=${params}`).then(res => {
+      console.log(res.data)
+      this.movieOnly = res.data;
+    })
+  }
+
   redirect(id: any){
     this.router.navigate([`movie-details/${id}`]);
+  }
+
+  async changeFilter(params: any){
+
+    await this.getMovieByName(params)
   }
 }
