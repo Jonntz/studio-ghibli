@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import Axios from 'axios';
-import { Router} from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -10,8 +10,8 @@ import { Router} from '@angular/router';
 export class HomeComponent implements OnInit {
 
   allMovies: any;
-  animeSearch:any;
-  movieOnly:any;
+  animeSearch: any;
+  movieOnly: any;
 
   constructor(private router: Router) { }
 
@@ -19,8 +19,8 @@ export class HomeComponent implements OnInit {
     await this.getAllMovies()
   }
 
-  async getAllMovies(){
-    let url = `https://ghibliapi.herokuapp.com/films`
+  async getAllMovies() {
+    let url = `https://ghibliapi.vercel.app/films`
     const api = Axios.create({
       baseURL: url
     })
@@ -30,22 +30,22 @@ export class HomeComponent implements OnInit {
     })
   }
 
-  async getMovieByName(params: any){
-    let url = `https://ghibliapi.herokuapp.com/films`
+  async getMovieByName(params: any) {
+    let url = `https://ghibliapi.vercel.app/films`
     const api = Axios.create({
       baseURL: url
     })
-    api.get(`/?title=${params}`).then(res => {
+    api.get(`?title=${params}`).then(res => {
       console.log(res.data)
       this.movieOnly = res.data;
     })
   }
 
-  redirect(id: any){
+  redirect(id: any) {
     this.router.navigate([`movie-details/${id}`]);
   }
 
-  async changeFilter(params: any){
+  async changeFilter(params: any) {
 
     await this.getMovieByName(params)
   }

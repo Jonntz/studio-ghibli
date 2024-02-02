@@ -9,18 +9,18 @@ import Axios from 'axios';
 })
 export class DetailsComponent implements OnInit {
 
-  id:any;
-  movie:any;
+  id: any;
+  movie: any;
 
   constructor(private route: ActivatedRoute) { }
 
-  async ngOnInit(){
+  async ngOnInit() {
     this.id = this.route.snapshot.params["id"]
     await this.getMovieById()
   }
 
-  async getMovieById(){
-    let url = `https://ghibliapi.herokuapp.com/films`
+  async getMovieById() {
+    let url = `https://ghibliapi.vercel.app/films`
     const api = Axios.create({
       baseURL: url
     })
